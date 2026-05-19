@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JP Monks | Premium Corporate Technology & Software Architecture</title>
+  <meta name="description" content="JP Monks is a premium software architecture and product engineering group. We build lightweight, high-performance systems including campus ERP suites, financial trackers, and custom enterprise engines.">
+  <meta name="keywords" content="JP Monks, Software Architecture, Enterprise ERP, School Management ERP, Personal Expense Tracker, High-Velocity R&D">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <!-- Premium Fonts integration -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Compiled main style sheet -->
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body class="text-brand-gray bg-white font-sans overflow-x-hidden selection:bg-brand-blue/12 selection:text-brand-navy">
+
+  <!-- STICKY HEADER -->
+  <header id="navbar" class="fixed top-0 left-0 w-full h-20 z-[1000] border-b border-transparent bg-transparent transition-all duration-300">
+    <div class="max-w-[1280px] h-full mx-auto px-6 flex justify-between items-center">
+      <!-- Full Brand Logo as an Image Asset -->
+      <a href="#hero" class="flex items-center" aria-label="JP Monks Home">
+        <div class="h-16 w-52 overflow-hidden flex items-center justify-start relative">
+          <img src="/assets/logo/Witout-BG-Logo.png" alt="JP Monks Logo" class="absolute h-[160px] w-auto max-w-none -left-6 object-contain transition-transform duration-200 hover:scale-[1.02]">
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="hidden lg:flex items-center gap-8 list-none font-title text-sm font-semibold text-brand-navy">
+        <li><a href="#hero" class="nav-link text-brand-blue font-semibold transition-colors duration-200">Home</a></li>
+        <li><a href="#about" class="nav-link text-brand-gray transition-colors duration-200 hover:text-brand-blue">About</a></li>
+        
+        <!-- Hoverable Dropdown -->
+        <li class="relative group cursor-pointer py-2">
+          <span class="flex items-center gap-1 text-brand-gray group-hover:text-brand-blue transition-colors duration-200">
+            Products
+            <svg class="w-3.5 h-3.5 fill-current transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+          </span>
+          <ul class="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white border border-brand-border rounded-premium-md shadow-premium-lg w-56 p-2 list-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200 z-[1010]">
+            <li class="mb-0.5">
+              <a href="#product-erp" class="block px-4 py-2.5 text-xs font-medium text-brand-gray hover:bg-brand-blue/5 hover:text-brand-blue rounded-premium-sm transition-all duration-200">
+                School ERP
+                <span class="inline-block text-[9px] font-bold px-1.5 py-0.5 bg-brand-blue/10 text-brand-blue rounded-full ml-1">Live</span>
+              </a>
+            </li>
+            <li class="mb-0.5">
+              <a href="#product-expenses" class="block px-4 py-2.5 text-xs font-medium text-brand-gray hover:bg-brand-blue/5 hover:text-brand-blue rounded-premium-sm transition-all duration-200">
+                Expenses Tracker
+                <span class="inline-block text-[9px] font-bold px-1.5 py-0.5 bg-brand-orange/10 text-brand-orange rounded-full ml-1">Beta</span>
+              </a>
+            </li>
+            <li>
+              <a href="#future-products" class="block px-4 py-2.5 text-xs font-medium text-brand-gray hover:bg-brand-blue/5 hover:text-brand-blue rounded-premium-sm transition-all duration-200">
+                Future Incubations
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="#services" class="nav-link text-brand-gray transition-colors duration-200 hover:text-brand-blue">Capabilities</a></li>
+        <li><a href="#roadmap" class="nav-link text-brand-gray transition-colors duration-200 hover:text-brand-blue">Roadmap</a></li>
+        <li><a href="#contact" class="nav-link text-brand-gray transition-colors duration-200 hover:text-brand-blue">Contact</a></li>
+      </ul>
+
+      <!-- Desktop Actions -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="#contact" class="px-5 py-2.5 font-title text-xs font-bold text-brand-navy border border-brand-border rounded-premium-md hover:border-brand-blue hover:text-brand-blue transition-all duration-200">Start Discussion</a>
+        <a href="#contact" class="px-5 py-2.5 font-title text-xs font-bold text-white bg-brand-blue rounded-premium-md hover:bg-brand-blue-hover shadow-premium-btn transition-all duration-200">Book a Demo</a>
+      </div>
+
+      <!-- Hamburger toggle on Mobile -->
+      <button id="menu-toggle" class="lg:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer z-[1002]" aria-label="Toggle Navigation Menu">
+        <span class="hamburger-line w-full h-[2px] bg-brand-navy rounded-full transition-transform duration-200 ease-in-out"></span>
+        <span class="hamburger-line w-full h-[2px] bg-brand-navy rounded-full transition-opacity duration-200 ease-in-out"></span>
+        <span class="hamburger-line w-full h-[2px] bg-brand-navy rounded-full transition-transform duration-200 ease-in-out"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Slide-out Drawer Menu -->
+    <div id="mobile-menu" class="lg:hidden fixed top-20 right-0 w-full h-[calc(100vh-80px)] bg-white border-t border-brand-border translate-x-full transition-transform duration-300 cubic-bezier(0.16,1,0.3,1) z-[1001] flex flex-col justify-between p-6 overflow-y-auto">
+      <ul class="flex flex-col gap-4 list-none font-title text-lg font-bold text-brand-navy">
+        <li><a href="#hero" class="nav-link block py-2 border-b border-brand-border text-brand-blue active">Home</a></li>
+        <li><a href="#about" class="nav-link block py-2 border-b border-brand-border text-brand-gray">About</a></li>
+        
+        <!-- Accordion dropdown in Mobile Menu -->
+        <li class="relative">
+          <button id="dropdown-toggle" class="w-full flex justify-between items-center py-2 border-b border-brand-border text-brand-gray font-bold text-left">
+            Products
+            <svg class="dropdown-arrow w-5 h-5 fill-current transition-transform duration-200" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+          </button>
+          <ul id="dropdown-menu" class="hidden list-none pl-4 mt-2 flex flex-col gap-2">
+            <li>
+              <a href="#product-erp" class="block py-2 text-sm text-brand-gray hover:text-brand-blue">
+                School ERP <span class="text-[9px] font-bold px-1.5 py-0.5 bg-brand-blue/10 text-brand-blue rounded-full ml-1">Live</span>
+              </a>
+            </li>
+            <li>
+              <a href="#product-expenses" class="block py-2 text-sm text-brand-gray hover:text-brand-blue">
+                Expenses Tracker <span class="text-[9px] font-bold px-1.5 py-0.5 bg-brand-orange/10 text-brand-orange rounded-full ml-1">Beta</span>
+              </a>
+            </li>
+            <li>
+              <a href="#future-products" class="block py-2 text-sm text-brand-gray">Future Incubations</a>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="#services" class="nav-link block py-2 border-b border-brand-border text-brand-gray">Capabilities</a></li>
+        <li><a href="#roadmap" class="nav-link block py-2 border-b border-brand-border text-brand-gray">Roadmap</a></li>
+        <li><a href="#contact" class="nav-link block py-2 border-b border-brand-border text-brand-gray">Contact</a></li>
+      </ul>
+
+      <div class="flex flex-col gap-3 mt-8">
+        <a href="#contact" class="w-full py-3.5 text-center font-title text-sm font-bold text-brand-navy border border-brand-border rounded-premium-md">Start Discussion</a>
+        <a href="#contact" class="w-full py-3.5 text-center font-title text-sm font-bold text-white bg-brand-blue rounded-premium-md shadow-premium-btn">Book a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <header id="hero" class="relative min-h-[90vh] flex items-center pt-24 pb-16 bg-white overflow-hidden">
+    <!-- Restrained geometric grid background pattern -->
+    <div class="absolute inset-0 bg-[radial-gradient(#E6EAF2_1px,transparent_1px)] [background-size:32px_32px] opacity-40 [mask-image:radial-gradient(circle_at_center,white_30%,transparent_100%)] z-[1]"></div>
+    
+    <div class="max-w-[1280px] mx-auto px-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center w-full relative z-[2]">
+      <div class="reveal flex flex-col items-start text-left">
+        <!-- Modern minimalist tag -->
+        <span class="inline-flex items-center gap-2 bg-brand-navy/[0.03] border border-brand-border px-4 py-1.5 rounded-full text-xs font-title font-bold text-brand-navy tracking-premium-tag uppercase mb-6">
+          <span class="w-1.5 h-1.5 bg-brand-blue rounded-full animate-ping"></span>
+          Enterprise Core Systems
+        </span>
+
+        <!-- Apple-grade headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-title font-extrabold text-brand-navy tracking-premium-title leading-[1.1] mb-6">
+          Engineering the <br>
+          <span class="text-brand-blue">Systems of Record</span>
+        </h1>
+        
+        <p class="text-base sm:text-lg text-brand-gray leading-relaxed max-w-[540px] mb-8 font-normal">
+          JP Monks builds ultra-fast, modular, and secure software ecosystems. We partner with growth organizations to architect robust backends, precise ERP rosters, and private financial trackers with zero technical overhead.
+        </p>
+
+        <!-- Stripe-like conversion CTA matrix -->
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10">
+          <a href="#contact" class="px-7 py-4 text-center font-title text-sm font-bold text-white bg-brand-blue rounded-premium-md hover:bg-brand-blue-hover shadow-premium-btn transition-all duration-200">Book private Demo</a>
+          <a href="#products" class="inline-flex items-center justify-center gap-2 px-7 py-4 text-center font-title text-sm font-bold text-brand-navy border border-brand-border rounded-premium-md hover:border-brand-blue hover:text-brand-blue transition-all duration-200">
+            Explore Ecosystem
+            <svg class="w-4 h-4 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Sleek Trust Counters -->
+        <div class="flex gap-10 border-t border-brand-border pt-6 w-full max-w-[480px]">
+          <div>
+            <span class="block font-title text-2xl font-extrabold text-brand-navy">99.99%</span>
+            <span class="text-[10px] text-brand-gray tracking-wider uppercase font-semibold">Core System Uptime</span>
+          </div>
+          <div>
+            <span class="block font-title text-2xl font-extrabold text-brand-navy">150k+</span>
+            <span class="text-[10px] text-brand-gray tracking-wider uppercase font-semibold">Processed Records</span>
+          </div>
+          <div>
+            <span class="block font-title text-2xl font-extrabold text-brand-navy">&lt; 1.2s</span>
+            <span class="text-[10px] text-brand-gray tracking-wider uppercase font-semibold">FCP Response Speed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Human-crafted central visual illustration (Sleek minimalist orbital layout) -->
+      <div class="reveal reveal-delay-2 flex justify-center items-center relative">
+        <div class="relative w-full max-w-[460px] aspect-square flex justify-center items-center">
+          <!-- Geometric Orbits (Clean micro-dashed lines) -->
+          <div class="absolute w-[85%] h-[85%] border border-dashed border-brand-border rounded-full animate-[spin_50s_linear_infinite]"></div>
+          <div class="absolute w-[60%] h-[60%] border border-dashed border-brand-border rounded-full animate-[spin_30s_linear_infinite_reverse]"></div>
+          
+          <!-- Monolith Centerpiece -->
+          <div class="relative z-[5] w-48 h-48 bg-brand-navy rounded-premium-xl shadow-premium-lg flex justify-center items-center border border-white/10 group overflow-hidden">
+            <!-- Glass gloss reflection -->
+            <div class="absolute -top-full -left-full w-full h-full bg-gradient-to-br from-white/5 to-transparent rotate-45 transition-all duration-1000 group-hover:translate-x-full group-hover:translate-y-full"></div>
+            <!-- Clean logo icon image loaded naturally -->
+            <img src="/assets/logo/Witout-BG-Logo.png" alt="JP Monks Icon" class="w-[240px] h-auto max-w-none flex-shrink-0 brightness-0 invert transition-transform duration-500 group-hover:scale-105">
+          </div>
+
+          <!-- Custom floating micro-widget cards styled with Stripe-precision -->
+          <div class="absolute top-10 left-2 bg-white/95 backdrop-blur-md border border-brand-border rounded-premium-md p-3.5 shadow-premium flex items-center gap-3.5 z-10 animate-[bounce_8s_ease-in-out_infinite]">
+            <span class="w-8 h-8 rounded-premium-sm bg-brand-blue/10 text-brand-blue flex items-center justify-center font-title font-extrabold text-xs">ERP</span>
+            <div class="flex flex-col text-left">
+              <span class="text-[11px] font-bold text-brand-navy leading-none mb-0.5">MonkAcademy Portal</span>
+              <span class="text-[10px] text-brand-gray leading-none">Database online</span>
+            </div>
+          </div>
+
+          <div class="absolute bottom-12 right-2 bg-white/95 backdrop-blur-md border border-brand-border rounded-premium-md p-3.5 shadow-premium flex items-center gap-3.5 z-10 animate-[bounce_8s_ease-in-out_infinite_4s]">
+            <span class="w-8 h-8 rounded-premium-sm bg-brand-orange/10 text-brand-orange flex items-center justify-center font-title font-extrabold text-xs">EXP</span>
+            <div class="flex flex-col text-left">
+              <span class="text-[11px] font-bold text-brand-navy leading-none mb-0.5">MonkExpense Beta</span>
+              <span class="text-[10px] text-brand-gray leading-none">Local scanner active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. BRAND INTRODUCTION -->
+  <section id="about" class="py-24 bg-brand-offwhite">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="reveal max-w-[640px] mb-16">
+        <span class="inline-block text-xs font-title font-bold text-brand-blue tracking-premium-tag uppercase mb-3">Our Core Mandate</span>
+        <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">Eliminating Systems Complexity</h2>
+        <p class="text-base text-brand-gray leading-relaxed">Bad software is the single largest driver of operational debt. JP Monks combines mathematical precision, strict backend scaling, and intuitive interface layouts to build products that optimize client operations.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-stretch">
+        <div class="reveal bg-white border border-brand-border rounded-premium-lg p-8 shadow-premium flex flex-col justify-between">
+          <div>
+            <h3 class="font-title text-lg font-bold text-brand-navy mb-3">First-Principles Architecture</h3>
+            <p class="text-sm text-brand-gray leading-relaxed mb-6">We never compromise with pre-made, fragile templates or bloated code libraries. Every layout database structure is modeled from scratch to maintain 100% data integrity and sub-millisecond response rates.</p>
+          </div>
+          <a href="#contact" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blue-hover transition-colors">
+            Learn about our architectural standards
+            <svg class="w-3 h-3 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal reveal-delay-2 bg-white border border-brand-border rounded-premium-lg p-8 shadow-premium flex flex-col justify-between">
+          <div>
+            <h3 class="font-title text-lg font-bold text-brand-navy mb-3">Zero Operational Lag</h3>
+            <p class="text-sm text-brand-gray leading-relaxed mb-6">Our system modules are designed to run smoothly on budget Android devices and low-bandwidth rural networks. By stripping out heavy frameworks, we ensure your team finishes tasks without browser lag.</p>
+          </div>
+          <a href="#contact" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blue-hover transition-colors">
+            Request performance benchmarks
+            <svg class="w-3 h-3 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PRODUCT ECOSYSTEM OVERVIEW -->
+  <section id="products" class="py-24 bg-white">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="reveal text-center max-w-[640px] mx-auto mb-20">
+        <span class="inline-block text-xs font-title font-bold text-brand-orange tracking-premium-tag uppercase mb-3">Product Portfolio</span>
+        <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">Software Infrastructure Assets</h2>
+        <p class="text-base text-brand-gray">We engineer focused software platforms designed to replace fragmented legacy services and unify operational administration.</p>
+      </div>
+
+      <div class="flex flex-col gap-24">
+        
+        <!-- 4. SCHOOL ERP SHOWCASE (MonkAcademy) -->
+        <div id="product-erp" class="grid lg:grid-cols-[1fr_1.1fr] gap-16 items-center reveal">
+          <div class="flex flex-col items-start">
+            <span class="inline-block text-[10px] font-title font-bold text-brand-blue tracking-premium-tag uppercase px-2.5 py-1 bg-brand-blue/5 border border-brand-blue/12 rounded-full mb-4">Flagship Platform</span>
+            <h3 class="text-2xl sm:text-3xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">MonkAcademy ERP</h3>
+            <p class="text-sm text-brand-gray leading-relaxed mb-6">
+              A comprehensive multi-campus dashboard engine built for modern academic institutions. MonkAcademy integrates student lifecycles, academic grade scaling, and online fee collection systems into a singular, highly isolated PostgreSQL database schema.
+            </p>
+            
+            <!-- Bullet Lists -->
+            <ul class="flex flex-col gap-4 mb-8 list-none w-full">
+              <li class="flex items-start gap-3 text-sm text-brand-gray">
+                <svg class="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>**Unified Campus Rosters**: Manage admissions pipelines, registration cards, and transcript archives smoothly.</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-brand-gray">
+                <svg class="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>**Smart Billing Ledgers**: Fully automated fee schedule triggers and secure online banking gateways.</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-brand-gray">
+                <svg class="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>**Advanced Gradebooks**: Modular grading frameworks supporting custom school credit rules.</span>
+              </li>
+            </ul>
+
+            <a href="#contact" class="px-5 py-3 font-title text-xs font-bold text-white bg-brand-blue rounded-premium-md hover:bg-brand-blue-hover shadow-premium-btn transition-all duration-200">Request Platform Demo</a>
+          </div>
+
+          <!-- Sleek Clean CSS Wireframe Preview -->
+          <div class="bg-brand-offwhite border border-brand-border rounded-premium-xl p-6 lg:p-8 flex items-center justify-center min-h-[380px] shadow-premium relative overflow-hidden">
+            <div class="w-full bg-white rounded-premium-lg border border-brand-border shadow-premium-lg flex flex-col p-5 gap-4">
+              <!-- Admin Header Bar -->
+              <div class="flex justify-between items-center border-b border-brand-border pb-3.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
+                  <span class="font-title text-xs font-bold text-brand-navy">MonkAcademy Admin Console</span>
+                </div>
+                <span class="inline-block text-[9px] font-bold px-2 py-0.5 bg-brand-blue/10 text-brand-blue rounded-full">Secure Multi-Campus Node</span>
+              </div>
+              
+              <!-- Metrics grid -->
+              <div class="grid grid-cols-3 gap-3.5">
+                <div class="border border-brand-border rounded-premium-md p-3 flex flex-col justify-between">
+                  <span class="text-[9px] text-brand-gray uppercase font-semibold leading-none mb-1">Students</span>
+                  <span class="text-lg font-title font-extrabold text-brand-navy leading-none mb-2">12,480</span>
+                  <div class="w-full h-1.5 bg-brand-border rounded-full overflow-hidden"><div class="h-full bg-brand-blue rounded-full" style="width: 78%"></div></div>
+                </div>
+                <div class="border border-brand-border rounded-premium-md p-3 flex flex-col justify-between">
+                  <span class="text-[9px] text-brand-gray uppercase font-semibold leading-none mb-1">Receipts</span>
+                  <span class="text-lg font-title font-extrabold text-brand-orange leading-none mb-2">$942.5k</span>
+                  <div class="w-full h-1.5 bg-brand-border rounded-full overflow-hidden"><div class="h-full bg-brand-orange rounded-full" style="width: 62%"></div></div>
+                </div>
+                <div class="border border-brand-border rounded-premium-md p-3 flex flex-col justify-between">
+                  <span class="text-[9px] text-brand-gray uppercase font-semibold leading-none mb-1">Server Latency</span>
+                  <span class="text-lg font-title font-extrabold text-brand-navy leading-none mb-2">9.2ms</span>
+                  <div class="w-full h-1.5 bg-brand-border rounded-full overflow-hidden"><div class="h-full bg-brand-navy rounded-full" style="width: 95%"></div></div>
+                </div>
+              </div>
+              
+              <!-- Analytics chart simulation -->
+              <div class="bg-brand-offwhite border border-brand-border rounded-premium-md p-4 flex flex-col gap-2.5">
+                <div class="flex justify-between items-center text-[10px] font-bold text-brand-navy">
+                  <span>Student Attendance analytics</span>
+                  <span>May 2026</span>
+                </div>
+                <!-- Simulated graph bars -->
+                <div class="flex items-end gap-2 h-20 pt-4">
+                  <div class="flex-grow bg-brand-border h-[20%] rounded-premium-sm transition-all duration-500 hover:bg-brand-blue"></div>
+                  <div class="flex-grow bg-brand-border h-[40%] rounded-premium-sm transition-all duration-500 hover:bg-brand-blue"></div>
+                  <div class="flex-grow bg-brand-blue h-[85%] rounded-premium-sm"></div>
+                  <div class="flex-grow bg-brand-blue h-[70%] rounded-premium-sm"></div>
+                  <div class="flex-grow bg-brand-orange h-[95%] rounded-premium-sm"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. EXPENSES TRACKER APP PREVIEW (MonkExpense) -->
+        <div id="product-expenses" class="grid lg:grid-cols-[1.1fr_1fr] gap-16 items-center reveal lg:direction-rtl">
+          <div class="flex flex-col items-start lg:direction-ltr">
+            <span class="inline-block text-[10px] font-title font-bold text-brand-orange tracking-premium-tag uppercase px-2.5 py-1 bg-brand-orange/5 border border-brand-orange/12 rounded-full mb-4">Consumer Platform</span>
+            <h3 class="text-2xl sm:text-3xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">MonkExpense Engine</h3>
+            <p class="text-sm text-brand-gray leading-relaxed mb-6">
+              A private-first personal finance tracker and automated ledger. MonkExpense connects securely to bank portals, processes invoice scanning locally on your smartphone to prevent data leaks, and parses spending records cleanly. We are deploying native wrappers to release this natively on the **Google Play Store**.
+            </p>
+            
+            <ul class="flex flex-col gap-4 mb-8 list-none w-full">
+              <li class="flex items-start gap-3 text-sm text-brand-gray">
+                <svg class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>**Local Invoice Parse**: Highly optimized scanner processes data entirely within your smartphone.</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-brand-gray">
+                <svg class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>**Instant Offline Mode**: Log cash transaction cards off-grid; auto-syncs securely when connected.</span>
+              </li>
+            </ul>
+
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center gap-1.5 text-xs font-title font-bold text-brand-orange px-3.5 py-1 bg-brand-orange/10 border border-brand-orange/20 rounded-full">
+                Play Store Launch: Q4 2026
+              </span>
+            </div>
+          </div>
+
+          <!-- Smartphone CSS Mockup Card -->
+          <div class="bg-brand-offwhite border border-brand-border rounded-premium-xl p-6 lg:p-8 flex items-center justify-center min-h-[380px] shadow-premium lg:direction-ltr">
+            <!-- Smartphone chassis -->
+            <div class="w-56 h-[390px] bg-brand-navy rounded-[38px] p-2.5 shadow-premium-lg border-[6px] border-brand-navy-dark overflow-hidden flex flex-col">
+              <div class="flex-grow bg-brand-offwhite rounded-[28px] p-4 flex flex-col gap-3.5">
+                <!-- Phone top bar -->
+                <div class="flex justify-between items-center text-[8px] font-bold text-brand-navy">
+                  <span>MonkExpense</span>
+                  <span>10:48</span>
+                </div>
+                
+                <!-- Card -->
+                <div class="bg-gradient-to-br from-brand-navy to-brand-navy-dark rounded-premium-lg p-3 text-white flex flex-col justify-between min-h-[85px] shadow-premium">
+                  <div>
+                    <span class="text-[7px] opacity-75 uppercase font-semibold">Available Liquidity</span>
+                    <span class="block text-sm font-title font-extrabold tracking-tight mt-0.5">$8,245.90</span>
+                  </div>
+                  <div class="flex justify-between items-center text-[7px] opacity-90 mt-2 font-semibold">
+                    <span>JP MONKS CARD</span>
+                    <span>•••• 4012</span>
+                  </div>
+                </div>
+
+                <!-- Phone transaction rows -->
+                <div class="flex flex-col gap-2">
+                  <span class="text-[8px] font-bold text-brand-navy tracking-wide uppercase">Recent Transactions</span>
+                  
+                  <div class="bg-white border border-brand-border rounded-premium-sm p-2 flex justify-between items-center text-[9px] shadow-sm">
+                    <span class="font-medium text-brand-navy">AWS Cloud Core</span>
+                    <span class="font-bold text-brand-orange">-$142.00</span>
+                  </div>
+
+                  <div class="bg-white border border-brand-border rounded-premium-sm p-2 flex justify-between items-center text-[9px] shadow-sm">
+                    <span class="font-medium text-brand-navy">MonkAcademy Tuition</span>
+                    <span class="font-bold text-green-600">+$850.00</span>
+                  </div>
+
+                  <div class="bg-white border border-brand-border rounded-premium-sm p-2 flex justify-between items-center text-[9px] shadow-sm">
+                    <span class="font-medium text-brand-navy">Espresso Fuel</span>
+                    <span class="font-bold text-brand-navy">-$12.50</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. FUTURE VISION / roadmap integration (Incubator placeholder grid) -->
+        <div id="future-products" class="border border-dashed border-brand-blue/30 bg-brand-blue/[0.01] rounded-premium-xl p-8 lg:p-12 text-center flex flex-col items-center gap-6 reveal">
+          <div class="w-12 h-12 rounded-full bg-brand-blue/8 text-brand-blue flex items-center justify-center border border-brand-blue/15">
+            <svg class="w-5 h-5 fill-none stroke-current stroke-[2]" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-title font-extrabold text-brand-navy tracking-premium-title">Strategic R&amp;D Pipeline Incubations</h3>
+          <p class="text-sm text-brand-gray leading-relaxed max-w-[620px]">
+            In addition to our current systems, JP Monks maintains strict blueprints for future platforms in highly complex sectors. We design unified schemas to handle modular client scaling.
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-6 w-full mt-6">
+            <div class="bg-white border border-brand-border rounded-premium-lg p-5 text-left transition-transform duration-300 hover:-translate-y-1">
+              <span class="inline-block text-[8px] font-bold px-2 py-0.5 bg-brand-navy/5 text-brand-navy rounded-full mb-3.5">Research Phase</span>
+              <h4 class="font-title text-sm font-bold text-brand-navy mb-1.5">MonkEMR Portal</h4>
+              <p class="text-[11px] text-brand-gray leading-normal">A fully encrypted Electronic Medical Record system with secure patient data exchange hooks.</p>
+            </div>
+
+            <div class="bg-white border border-brand-border rounded-premium-lg p-5 text-left transition-transform duration-300 hover:-translate-y-1">
+              <span class="inline-block text-[8px] font-bold px-2 py-0.5 bg-brand-navy/5 text-brand-navy rounded-full mb-3.5">Architecture Phase</span>
+              <h4 class="font-title text-sm font-bold text-brand-navy mb-1.5">MonkLogistics</h4>
+              <p class="text-[11px] text-brand-gray leading-normal">Low-latency fleet routers, pathfinder tracking maps, and optimized warehouse schedules.</p>
+            </div>
+
+            <div class="bg-white border border-brand-border rounded-premium-lg p-5 text-left transition-transform duration-300 hover:-translate-y-1">
+              <span class="inline-block text-[8px] font-bold px-2 py-0.5 bg-brand-navy/5 text-brand-navy rounded-full mb-3.5">Drafting Phase</span>
+              <h4 class="font-title text-sm font-bold text-brand-navy mb-1.5">MonkHospitality</h4>
+              <p class="text-[11px] text-brand-gray leading-normal">Decoupled reservation grids, global calendar overlays, and clean billing reconciliation logs.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SERVICES & CAPABILITIES SECTION -->
+  <section id="services" class="py-24 bg-brand-offwhite">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="reveal text-center max-w-[640px] mx-auto mb-20">
+        <span class="inline-block text-xs font-title font-bold text-brand-blue tracking-premium-tag uppercase mb-3">Capabilities</span>
+        <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">Systems Architecture Consulting</h2>
+        <p class="text-base text-brand-gray">We engineer robust middleware channels, secure database networks, and performance audits for enterprise systems.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="reveal bg-white border border-brand-border rounded-premium-lg p-8 shadow-premium">
+          <div class="w-10 h-10 rounded-premium-md bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 fill-none stroke-current stroke-[2]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="font-title text-base font-bold text-brand-navy mb-2">Custom Software R&amp;D</h3>
+          <p class="text-xs text-brand-gray leading-relaxed">
+            We write clean, high-performance backends, secure synchronization layers, and custom API pipelines entirely from first principles.
+          </p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="reveal reveal-delay-1 bg-white border border-brand-border rounded-premium-lg p-8 shadow-premium">
+          <div class="w-10 h-10 rounded-premium-md bg-brand-orange/10 text-brand-orange flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 fill-none stroke-current stroke-[2]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10a2 2 0 01-2 2h-2a2 2 0 01-2-2zm0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-title text-base font-bold text-brand-navy mb-2">Scale-Out Transitions</h3>
+          <p class="text-xs text-brand-gray leading-relaxed">
+            Refactor brittle, slow monolith codebases into lightweight, scalable microservice fabrics engineered for horizontal cluster scaling.
+          </p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="reveal reveal-delay-2 bg-white border border-brand-border rounded-premium-lg p-8 shadow-premium">
+          <div class="w-10 h-10 rounded-premium-md bg-brand-navy/10 text-brand-navy flex items-center justify-center mb-6">
+            <svg class="w-5 h-5 fill-none stroke-current stroke-[2]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="font-title text-base font-bold text-brand-navy mb-2">System Audits &amp; Security</h3>
+          <p class="text-xs text-brand-gray leading-relaxed">
+            Perform structural threat assessments, database transaction isolation checks, and performance optimization down to raw payload weights.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. DEVELOPMENT WORKFLOW -->
+  <section class="py-24 bg-white border-b border-brand-border">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="reveal text-center max-w-[640px] mx-auto mb-20">
+        <span class="inline-block text-xs font-title font-bold text-brand-navy tracking-premium-tag uppercase mb-3">Our Process</span>
+        <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">Engineered to Deliver</h2>
+        <p class="text-base text-brand-gray">Our software development workflow is structured to guide concepts safely into robust, production-grade systems.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        <!-- Connecting Line in large screens -->
+        <div class="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[1px] bg-brand-border z-1"></div>
+
+        <!-- Step 1 -->
+        <div class="reveal bg-white border border-brand-border rounded-premium-lg p-6 text-center z-10 shadow-premium">
+          <div class="w-12 h-12 rounded-full bg-brand-offwhite border border-brand-border text-brand-blue flex items-center justify-center font-title font-bold text-base mx-auto mb-4 transition-all duration-300 hover:bg-brand-blue hover:text-white">01</div>
+          <h3 class="font-title text-sm font-bold text-brand-navy mb-1.5">Strategize</h3>
+          <p class="text-[11px] text-brand-gray leading-normal">Map operational bottlenecks, draft secure database schemas, and refine system parameters.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal reveal-delay-1 bg-white border border-brand-border rounded-premium-lg p-6 text-center z-10 shadow-premium">
+          <div class="w-12 h-12 rounded-full bg-brand-offwhite border border-brand-border text-brand-blue flex items-center justify-center font-title font-bold text-base mx-auto mb-4 transition-all duration-300 hover:bg-brand-blue hover:text-white">02</div>
+          <h3 class="font-title text-sm font-bold text-brand-navy mb-1.5">Architect</h3>
+          <p class="text-[11px] text-brand-gray leading-normal">Model clean backend routes, isolate API channels, and optimize query latency plans.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="reveal reveal-delay-2 bg-white border border-brand-border rounded-premium-lg p-6 text-center z-10 shadow-premium">
+          <div class="w-12 h-12 rounded-full bg-brand-offwhite border border-brand-border text-brand-blue flex items-center justify-center font-title font-bold text-base mx-auto mb-4 transition-all duration-300 hover:bg-brand-blue hover:text-white">03</div>
+          <h3 class="font-title text-sm font-bold text-brand-navy mb-1.5">R&amp;D Code</h3>
+          <p class="text-[11px] text-brand-gray leading-normal">Develop modular, well-documented source codes. We follow strict linting standards.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="reveal reveal-delay-3 bg-white border border-brand-border rounded-premium-lg p-6 text-center z-10 shadow-premium">
+          <div class="w-12 h-12 rounded-full bg-brand-offwhite border border-brand-border text-brand-blue flex items-center justify-center font-title font-bold text-base mx-auto mb-4 transition-all duration-300 hover:bg-brand-blue hover:text-white">04</div>
+          <h3 class="font-title text-sm font-bold text-brand-navy mb-1.5">Scale Out</h3>
+          <p class="text-[11px] text-brand-gray leading-normal">Deploy behind redundant load balancers, activate edge cache distributions, and monitor logs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. WHY CHOOSE JP MONKS -->
+  <section class="py-24 bg-brand-offwhite">
+    <div class="max-w-[1280px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <span class="inline-block text-xs font-title font-bold text-brand-blue tracking-premium-tag uppercase mb-3">Enterprise Standards</span>
+        <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-6">Designed for Real Production Demands</h2>
+        <p class="text-sm text-brand-gray leading-relaxed mb-8">
+          Generic development shops build with heavy, brittle third-party templates that break when operations scale. JP Monks maintains strict engineering and documentation standards, giving you total code ownership.
+        </p>
+
+        <div class="flex flex-col gap-6">
+          <div class="flex gap-4 items-start">
+            <span class="px-2.5 py-1 bg-brand-blue/10 text-brand-blue rounded font-title font-extrabold text-xs">100%</span>
+            <div>
+              <h4 class="font-title text-sm font-bold text-brand-navy mb-1">Hand-Written Vanilla Core</h4>
+              <p class="text-xs text-brand-gray">We prioritize speed, removing template builders or fragile packages from customer paths.</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4 items-start">
+            <span class="px-2.5 py-1 bg-brand-orange/10 text-brand-orange rounded font-title font-extrabold text-xs">Zero</span>
+            <div>
+              <h4 class="font-title text-sm font-bold text-brand-navy mb-1">Vendor Lock-In</h4>
+              <p class="text-xs text-brand-gray">Every line of code and database schema we build belongs to you—documented for easy handover.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 bg-brand-navy text-white p-8 lg:p-10 rounded-premium-xl shadow-premium-lg flex flex-col gap-6 relative overflow-hidden">
+        <!-- Ambient glowing shape -->
+        <div class="absolute -top-16 -right-16 w-44 h-44 bg-brand-blue rounded-full filter blur-[80px] opacity-30"></div>
+        
+        <h3 class="font-title text-lg font-extrabold tracking-tight mb-2">Our Performance SLA Commitments</h3>
+        
+        <div class="border-b border-white/10 pb-5">
+          <span class="block font-title text-4xl font-extrabold text-brand-blue leading-none mb-2">&lt; 1.2s</span>
+          <span class="text-[10px] opacity-75 uppercase tracking-wider font-semibold">First Contentful Paint (FCP) Limit</span>
+        </div>
+
+        <div class="border-b border-white/10 pb-5">
+          <span class="block font-title text-4xl font-extrabold text-brand-orange leading-none mb-2">AES-256</span>
+          <span class="text-[10px] opacity-75 uppercase tracking-wider font-semibold">Database Field Encryption Standard</span>
+        </div>
+
+        <div>
+          <span class="block font-title text-4xl font-extrabold leading-none mb-2">A+ Rating</span>
+          <span class="text-[10px] opacity-75 uppercase tracking-wider font-semibold">OWASP Security Compliance Audit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FUTURE ROADMAP (Interactive Component) -->
+  <section id="roadmap" class="py-24 bg-white border-b border-brand-border">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="reveal text-center max-w-[640px] mx-auto mb-16">
+        <span class="inline-block text-xs font-title font-bold text-brand-blue tracking-premium-tag uppercase mb-3">Vision Map</span>
+        <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">Technology Pipelines</h2>
+        <p class="text-base text-brand-gray">An interactive look at our release schedules and upcoming software development phases.</p>
+      </div>
+
+      <div class="reveal">
+        <!-- Roadmap Year Navigation Buttons -->
+        <div class="flex justify-center gap-3.5 mb-12">
+          <button class="roadmap-btn px-6 py-3 font-title text-xs font-bold bg-brand-navy text-white rounded-full shadow-premium-btn transition-all duration-200" data-target="roadmap-card-26">Q3-Q4 2026</button>
+          <button class="roadmap-btn px-6 py-3 font-title text-xs font-bold bg-white text-brand-navy border border-brand-border rounded-full hover:border-brand-blue hover:text-brand-blue transition-all duration-200" data-target="roadmap-card-27">Q1-Q2 2027</button>
+          <button class="roadmap-btn px-6 py-3 font-title text-xs font-bold bg-white text-brand-navy border border-brand-border rounded-full hover:border-brand-blue hover:text-brand-blue transition-all duration-200" data-target="roadmap-card-28">2028 &amp; Beyond</button>
+        </div>
+
+        <!-- Roadmap Cards Container -->
+        <div class="relative min-h-[220px]">
+          <!-- Card 2026 -->
+          <div id="roadmap-card-26" class="roadmap-card active grid md:grid-cols-[0.8fr_1.2fr] gap-8 bg-white border border-brand-border rounded-premium-xl p-8 shadow-premium">
+            <div class="flex flex-col items-start md:border-r border-brand-border md:pr-8">
+              <span class="font-title text-4xl font-extrabold text-brand-blue leading-none mb-1.5">2026</span>
+              <span class="text-xs font-bold text-brand-orange uppercase tracking-wider mb-4">Q3-Q4 Timeline</span>
+              <span class="inline-block text-[9px] font-bold px-2 py-0.5 bg-brand-blue/10 text-brand-blue rounded-full">Current Focus</span>
+            </div>
+            <div class="flex flex-col justify-center text-left">
+              <h3 class="font-title text-lg font-bold text-brand-navy mb-2">School Modules Launch &amp; Personal Ledger Beta</h3>
+              <p class="text-xs text-brand-gray leading-relaxed mb-4">
+                Deploying comprehensive online billing gates in MonkAcademy ERP and polishing native offline receipt scanning databases for the Expenses Tracker mobile application.
+              </p>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-xs font-medium text-brand-navy">
+                  <span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>
+                  <span>Integrate credit billing schemas in MonkAcademy ERP.</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-medium text-brand-navy">
+                  <span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>
+                  <span>Validate local receipt scan engines for MonkExpense app.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2027 -->
+          <div id="roadmap-card-27" class="roadmap-card hidden opacity-0 scale-[0.98] grid md:grid-cols-[0.8fr_1.2fr] gap-8 bg-white border border-brand-border rounded-premium-xl p-8 shadow-premium absolute top-0 left-0 w-full">
+            <div class="flex flex-col items-start md:border-r border-brand-border md:pr-8">
+              <span class="font-title text-4xl font-extrabold text-brand-blue leading-none mb-1.5">2027</span>
+              <span class="text-xs font-bold text-brand-gray uppercase tracking-wider mb-4">Q1-Q2 Focus</span>
+              <span class="inline-block text-[9px] font-bold px-2 py-0.5 bg-brand-navy/5 text-brand-navy rounded-full">Upcoming Phase</span>
+            </div>
+            <div class="flex flex-col justify-center text-left">
+              <h3 class="font-title text-lg font-bold text-brand-navy mb-2">MonkExpense Google Play Store Launch</h3>
+              <p class="text-xs text-brand-gray leading-relaxed mb-4">
+                Releasing our offline-first personal financial manager natively to Android users and starting core HIPAA schema mapping for the health EMR portal blueprints.
+              </p>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-xs font-medium text-brand-navy">
+                  <span class="w-1.5 h-1.5 bg-brand-blue rounded-full"></span>
+                  <span>Deploy MonkExpense app public release on Play Store.</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs font-medium text-brand-navy">
+                  <span class="w-1.5 h-1.5 bg-brand-blue rounded-full"></span>
+                  <span>Draft HIPAA data field storage and access logs schemas.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2028 -->
+          <div id="roadmap-card-28" class="roadmap-card hidden opacity-0 scale-[0.98] grid md:grid-cols-[0.8fr_1.2fr] gap-8 bg-white border border-brand-border rounded-premium-xl p-8 shadow-premium absolute top-0 left-0 w-full">
+            <div class="flex flex-col items-start md:border-r border-brand-border md:pr-8">
+              <span class="font-title text-4xl font-extrabold text-brand-blue leading-none mb-1.5">2028+</span>
+              <span class="text-xs font-bold text-brand-gray tracking-wider uppercase mb-4">Long-Term Horizon</span>
+              <span class="inline-block text-[9px] font-bold px-2 py-0.5 bg-brand-navy/5 text-brand-navy rounded-full">Strategic Goals</span>
+            </div>
+            <div class="flex flex-col justify-center text-left">
+              <h3 class="font-title text-lg font-bold text-brand-navy mb-2">Fleet Route Pathfinder R&amp;D</h3>
+              <p class="text-xs text-brand-gray leading-relaxed mb-4">
+                Building highly dynamic logistics and fleet planning algorithms and rolling out multi-campus dashboard integrations for regional clinic networks.
+              </p>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-xs font-medium text-brand-navy">
+                  <span class="w-1.5 h-1.5 bg-brand-navy rounded-full"></span>
+                  <span>Develop core pathfinder path dispatch node calculations.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. TRUST / TESTIMONIALS SECTION -->
+  <section class="py-24 bg-brand-offwhite">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="reveal text-center max-w-[640px] mx-auto mb-16">
+        <span class="inline-block text-xs font-title font-bold text-brand-orange tracking-premium-tag uppercase mb-3">Enterprise Trust</span>
+        <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">Validated by Systems Leaders</h2>
+        <p class="text-base text-brand-gray">How academic boards and operational directors evaluate their partnerships with JP Monks.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="reveal bg-white border border-brand-border rounded-premium-lg p-8 shadow-premium flex flex-col justify-between">
+          <p class="text-xs sm:text-sm text-brand-gray leading-relaxed italic mb-8">
+            "We were using a legacy student portal that collapsed during peak enrollment weeks. JP Monks audited our pipelines and built the MonkAcademy ERP database nodes. Our system load handles over 12,000 active students concurrently with zero lag spikes. An outstanding engineering team."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand-navy text-white flex items-center justify-center font-title font-bold text-xs">AH</div>
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-brand-navy">Dr. Arthur Pendelton</span>
+              <span class="text-[10px] text-brand-gray">Chairman, Academic Board of Karnataka Secondary Education</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="reveal reveal-delay-2 bg-white border border-brand-border rounded-premium-lg p-8 shadow-premium flex flex-col justify-between">
+          <p class="text-xs sm:text-sm text-brand-gray leading-relaxed italic mb-8">
+            "Technical debt was draining our engineering resources. The team at JP Monks decoupled our billing systems, leaving us with highly documented, lightweight custom APIs that run seamlessly. The transition was completed under budget and ahead of timeline schedules."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-brand-navy text-white flex items-center justify-center font-title font-bold text-xs">SM</div>
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-brand-navy">Sarah Jenkins-McGuire</span>
+              <span class="text-[10px] text-brand-gray">Director of Engineering, Sterling Operations UK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FINAL CTA SECTION -->
+  <section id="contact" class="py-24 bg-white relative overflow-hidden">
+    <!-- Subtle background elements -->
+    <div class="absolute inset-0 bg-[radial-gradient(#E6EAF2_1px,transparent_1px)] [background-size:32px_32px] opacity-35 z-1"></div>
+    
+    <div class="max-w-[1280px] mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-stretch">
+        
+        <!-- Details Block -->
+        <div class="reveal flex flex-col justify-between text-left">
+          <div>
+            <span class="inline-block text-xs font-title font-bold text-brand-blue tracking-premium-tag uppercase mb-3">Engage</span>
+            <h2 class="text-3xl sm:text-4xl font-title font-extrabold text-brand-navy tracking-premium-title leading-tight mb-4">Let's build systems <br>that perform.</h2>
+            <p class="text-sm text-brand-gray leading-relaxed max-w-[480px] mb-8">
+              Whether you are an academic director planning campus infrastructure upgrades, or an enterprise looking to optimize database performance, JP Monks has the architects to deliver.
+            </p>
+
+            <div class="flex flex-col gap-5">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-premium-sm bg-brand-blue/10 text-brand-blue flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </span>
+                <div class="flex flex-col">
+                  <span class="text-[10px] text-brand-gray font-semibold uppercase leading-none mb-0.5">Direct Inquiry Link</span>
+                  <a href="mailto:solutions@jpmonks.com" class="text-xs font-bold text-brand-blue">solutions@jpmonks.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-premium-sm bg-brand-navy/10 text-brand-navy flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </span>
+                <div class="flex flex-col">
+                  <span class="text-[10px] text-brand-gray font-semibold uppercase leading-none mb-0.5">R&amp;D Hub Locations</span>
+                  <span class="text-xs font-bold text-brand-navy">Indore, MP, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-brand-gray/80 border-t border-brand-border pt-4 mt-8">
+            💡 Verified business inquiries receive a detailed architectural callback response within 2 hours.
+          </div>
+        </div>
+
+        <!-- Dynamic Form Block -->
+        <div class="reveal reveal-delay-2 bg-brand-offwhite border border-brand-border rounded-premium-xl p-8 shadow-premium-lg">
+          <form id="contact-form" novalidate class="flex flex-col gap-5 text-left">
+            <div>
+              <label for="form-name" class="block text-[10px] font-title font-bold text-brand-navy uppercase tracking-wider mb-1.5">Full Name</label>
+              <input type="text" id="form-name" class="form-input w-full px-4 py-3 text-xs bg-white border border-brand-border rounded-premium-md focus:outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 transition-all duration-200" placeholder="e.g. Arthur Pendelton" required>
+            </div>
+
+            <div>
+              <label for="form-email" class="block text-[10px] font-title font-bold text-brand-navy uppercase tracking-wider mb-1.5">Corporate Email</label>
+              <input type="email" id="form-email" class="form-input w-full px-4 py-3 text-xs bg-white border border-brand-border rounded-premium-md focus:outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 transition-all duration-200" placeholder="e.g. arthur@educationalboard.org" required>
+            </div>
+
+            <div>
+              <label for="form-subject" class="block text-[10px] font-title font-bold text-brand-navy uppercase tracking-wider mb-1.5">System Requirement</label>
+              <select id="form-subject" class="form-input w-full px-4 py-3 text-xs bg-white border border-brand-border rounded-premium-md focus:outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 transition-all duration-200 appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%235B6475%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:10px_10px] bg-[position:right_16px_center] bg-no-repeat" required>
+                <option value="" disabled selected>Select Operational Bottleneck...</option>
+                <option value="School ERP Platform">School ERP Platforms (MonkAcademy)</option>
+                <option value="Expense Tracker Engine">Expense Tracker App (MonkExpense)</option>
+                <option value="Custom R&amp;D Code Consulting">Custom Backend Architecture R&amp;D</option>
+                <option value="Infrastructure Scale audit">Cluster / Database Scale Audits</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="form-message" class="block text-[10px] font-title font-bold text-brand-navy uppercase tracking-wider mb-1.5">Operational Details</label>
+              <textarea id="form-message" class="form-input w-full px-4 py-3 text-xs bg-white border border-brand-border rounded-premium-md focus:outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 transition-all duration-200 min-h-[105px] resize-y" placeholder="Describe the throughput constraints or scale requirements..." required></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 text-center font-title text-sm font-bold text-white bg-brand-blue hover:bg-brand-blue-hover rounded-premium-md shadow-premium-btn flex items-center justify-center gap-2 transition-all duration-200">
+              Submit Corporate Inquiry
+              <svg class="w-4 h-4 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. PREMIUM FOOTER -->
+  <footer class="bg-brand-navy-dark text-white/70 py-16 border-t border-white/5">
+    <div class="max-w-[1280px] mx-auto px-6">
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 mb-16">
+        <!-- Brand identity block -->
+        <div class="flex flex-col items-start gap-5">
+          <!-- Logo image inverted pristine white for dark background -->
+          <div class="h-16 w-52 overflow-hidden flex items-center justify-start relative">
+            <img src="/assets/logo/Witout-BG-Logo.png" alt="JP Monks" class="absolute h-[160px] w-auto max-w-none -left-6 object-contain brightness-0 invert">
+          </div>
+          <p class="text-xs leading-relaxed max-w-[280px] text-white/60">
+            JP Monks designs next-generation databases, robust administrative ERP structures, and private financial trackers with first-principle code compliance.
+          </p>
+          <span class="font-title text-[9px] font-bold text-brand-blue tracking-[0.25em] uppercase">INNOVATE • BUILD • DELIVER</span>
+        </div>
+
+        <!-- Sitemap 1 -->
+        <div class="text-left">
+          <h4 class="font-title text-xs font-bold text-white tracking-wider uppercase mb-5">Product Ecosystem</h4>
+          <ul class="flex flex-col gap-3.5 list-none text-xs">
+            <li><a href="#product-erp" class="hover:text-white transition-colors duration-200">MonkAcademy ERP</a></li>
+            <li><a href="#product-expenses" class="hover:text-white transition-colors duration-200">MonkExpense Engine</a></li>
+            <li><a href="#future-products" class="hover:text-white transition-colors duration-200">Incubations Roadmap</a></li>
+            <li><a href="#roadmap" class="hover:text-white transition-colors duration-200">Systems Timeline</a></li>
+          </ul>
+        </div>
+
+        <!-- Sitemap 2 -->
+        <div class="text-left">
+          <h4 class="font-title text-xs font-bold text-white tracking-wider uppercase mb-5">Capabilities</h4>
+          <ul class="flex flex-col gap-3.5 list-none text-xs">
+            <li><a href="#services" class="hover:text-white transition-colors duration-200">Custom software R&amp;D</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors duration-200">Scale-Out refactoring</a></li>
+            <li><a href="#why-choose-us" class="hover:text-white transition-colors duration-200">Performance Auditing</a></li>
+            <li><a href="#process" class="hover:text-white transition-colors duration-200">Engagement Workflow</a></li>
+          </ul>
+        </div>
+
+        <!-- Connections block -->
+        <div class="text-left">
+          <h4 class="font-title text-xs font-bold text-white tracking-wider uppercase mb-5">Connect Board</h4>
+          <div class="flex flex-col gap-4 text-xs">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>solutions@jpmonks.com</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              <span>Strategist Call: Under 2h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/50 gap-4">
+        <span>&copy; <span id="footer-current-year">2026</span> JP Monks. All rights reserved. Hand-crafted using modular vanilla engineering.</span>
+        <div class="flex gap-6 list-none">
+          <a href="#" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors duration-200">Terms of Service</a>
+          <a href="#" class="hover:text-white transition-colors duration-200">SLA compliance status</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Main script bundle import bootstrapped natively -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
