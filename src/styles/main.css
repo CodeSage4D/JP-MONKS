@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+/* Core Custom Enhancements */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Sticky navigation offset */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply text-brand-gray bg-white font-sans;
+    overflow-x: hidden;
+  }
+
+  /* Accessible Focus Outline */
+  *:focus-visible {
+    @apply outline outline-2 outline-offset-4 outline-brand-blue;
+  }
+
+  /* Custom high-contrast text selection colors */
+  ::selection {
+    background-color: rgba(30, 99, 255, 0.12);
+    @apply text-brand-navy;
+  }
+
+  /* Custom Sleek Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-brand-offwhite;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(15, 30, 77, 0.15);
+    @apply rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-blue;
+  }
+}
+
+/* Elite Scroll Reveal classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom visual layout adjustments for timelines and tabs */
+.roadmap-card {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roadmap-card.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Toast alert visual sliding animations */
+.toast-slide-in {
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
